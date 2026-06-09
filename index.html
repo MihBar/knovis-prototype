@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knovis | Граф организационных изменений</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p id="modeLabel" class="eyebrow">Граф роли</p>
+            <h2 id="roleTitle"></h2>
+          </div>
+          <div class="readiness" aria-live="polite">
+            <span>Готовность</span>
+            <strong id="readinessScore">0%</strong>
+          </div>
+        </header>
+
+        <section class="graph-area" aria-label="Граф роли">
+          <svg id="knowledgeGraph" role="img" aria-label="Связи роли, задач, требований, рисков и интервенций"></svg>
+        </section>
+
+        <section id="detailsGrid" class="details-grid">
+          <article class="role-passport">
+            <div class="section-title">
+              <h3>Паспорт роли</h3>
+              <span id="roleScope"></span>
+            </div>
+            <p id="roleSummary"></p>
+            <div id="roleFacts" class="fact-grid"></div>
+          </article>
+
+          <article class="assessment-panel">
+            <div class="section-title">
+              <h3>Оценка требований</h3>
+              <span id="assessmentContext"></span>
+            </div>
+            <div id="requirementsList" class="requirements"></div>
+          </article>
+
+          <article class="gap-panel">
+            <div class="section-title">
+              <h3>Дефициты и действия</h3>
+              <span id="gapCount"></span>
+            </div>
+            <div id="gapList" class="gaps"></div>
+          </article>
+        </section>
+      </section>
+
+      <aside class="sidebar" aria-label="Навигация">
+        <div class="brand">
+          <div class="brand-mark">K</div>
+          <div>
+            <h1>Knovis</h1>
+            <p>Граф организационных знаний</p>
+          </div>
+        </div>
+
+        <section class="menu-group">
+          <button id="peopleToggle" class="menu-toggle" type="button" aria-expanded="false">
+            <span>Люди</span>
+            <b id="peopleCount"></b>
+          </button>
+          <div id="peopleList" class="item-list collapsed"></div>
+        </section>
+
+        <section class="menu-group">
+          <button id="rolesToggle" class="menu-toggle" type="button" aria-expanded="true">
+            <span>Роли</span>
+            <b id="roleCount"></b>
+          </button>
+          <div id="roleList" class="item-list"></div>
+        </section>
+      </aside>
+
+      <div id="rolePicker" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="rolePickerTitle">
+        <section class="role-picker">
+          <div class="section-title">
+            <h3 id="rolePickerTitle">Выберите роль</h3>
+            <button id="rolePickerClose" class="icon-button" type="button" aria-label="Закрыть">×</button>
+          </div>
+          <p id="rolePickerEmployee"></p>
+          <div id="rolePickerList" class="item-list"></div>
+        </section>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
